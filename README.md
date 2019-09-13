@@ -16,11 +16,11 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Team Lead_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
-- [ ] Implement the project on this Branch, committing changes regularly.
+- [X] Create a forked copy of this project.
+- [X] Add your _Team Lead_ as collaborator on Github.
+- [X] Clone your forked version of the Repository.
+- [X] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [X] Implement the project on this Branch, committing changes regularly.
 - [ ] Push commits: git push origin `firstName-lastName`.
 
 Follow these steps for completing your project.
@@ -38,13 +38,21 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [X] Explain the difference between `Relational Databases` and `SQL`.
 
-- [ ] Why do tables need a `primary key`?
+Relational databases are similar to spreadsheets in that they store data grouped by rows — a table defines the contents. SQL (structured query language) is the language that we use to manage and access the data from a relational database. 
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+- [X] Why do tables need a `primary key`?
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+Every table in a relational database should have a primary key because primary keys uniquely identify each row of a table. They are usually represented by an auto-incrementing integer.
+
+- [X] What is the name given to a table column that references the primary key on another table.
+
+This is called a foreign key. Foreign keys are used to create links between tables. They are usually represented by unique integers, and they are used to connect a record in one table to a record in a second table.
+
+- [X] What do we need in order to have a _many to many_ relationship between two tables.
+
+To model a many to many relationship between two tables, we need to create a third table that contains foreign keys, which reference the primary key on each of the two tables. This allows for unique combinations of the keys that reference the two related tables.
 
 ## Minimum Viable Product
 
