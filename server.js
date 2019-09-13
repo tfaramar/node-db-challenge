@@ -42,12 +42,23 @@ server.post('/projects', (req, res) => {
 //resource operations
 server.get('/projects/:id/resources', (req, res) => {
     const { id } = req.params;
-    Projects.getResources(id)
+    Projects.getResourcesByProject(id)
         .then(resources => {
             res.status(200).json(resources)
         })
         .catch(error => {
             res.status(500).json({ message: 'There was an error retrieving the resources for this project.' });
+        });
+});
+
+server.post('/resources', (req, res) => {
+    const newResource = req.body;
+    Projects.addResource(newResource)
+        .then(project => {
+            res.status(201).json(project);
+        })
+        .catch(error => {
+            res.status(500).json({ message: 'Failed to create new resource.' }); 
         });
 });
 
@@ -67,10 +78,24 @@ server.get('/projects/:id/tasks', (req, res) => {
         });
 });
 
-// server.post('/projects/:id', (req, res) => {
-//     const newTask = req.body;
-//     const { id } = req.params;
-//     Projects.addTask(newTask, id)
-// })
+server.post('/projects/:id', (req, res) => {
+    const newTask = req.body;
+    const { id } = req.params;
+    
+    Projects.getProjectById(id)
+    .then(project => {
+        if (project) {
+            Projects.addTask(newTask, id)
+            .then(task => {
+              res.status(201).json(task);
+            })
+          } else {
+            res.status(404).json({ message: 'Could not find project with given id.' })
+          }
+    })
+    .catch (error => {
+        res.status(500).json({ message: 'Failed to create new task.' });
+    });
+});
 
 module.exports = server;
